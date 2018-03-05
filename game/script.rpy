@@ -4,9 +4,11 @@
 # name of the character.
 
 define g = Character("Girl")
-define m = Character("")
+define m = Character("You")
 define e = Character("Me")
 define w = Character("My wife")
+define s = Character("Scott")
+define d = Character("Dr. Manhattan")
 image eileen movie = Movie(size=(1280, 720), channel="me", play="images/girl2.mkv")
 
 
@@ -107,7 +109,7 @@ label start:
     "*she hangs up*"
     "Why is she always like this?"
     
-    jump end
+    jump day2
     
     label ignore:
     scene busstop at truecenter with dissolve
@@ -122,84 +124,112 @@ label start:
     
     # This ends the game.
     
-    label end:
-        
-    show 2years with fade
-    
-    ""
-    
-    
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    label day2:
 
-    scene arguing  at truecenter
+    scene morning at truecenter
     with dissolve
+    
+    "I wake up in the morning with a headache and I'm so thirsty.. I might have had too many drinks last night."
+    "I should probably check up on my friend Scott and make sure that he is alright. Oh and I need to call my girlfriend too."
+    
+    menu hospital_or_girlfriend:
+        "Check up on Scott":
+            $ the_choice = 'scott'
+            jump hospital
+        
+        "Call girlfriend":
+            $ the_choice = 'girlfriend'
+            m "Hey girlfriend, I was out with Scott last night."
+            g "Yeah I heard about Scott, how is he doing now?"
+            m "I was thinking of checking up on him later."
+            g "Can you come over? I want to talk to you about you drinking every night."
+            m "Okay I'm on my way."
+            jump girlfriend_house
+        
+    label hospital:
+        scene driving at truecenter
+        with dissolve
+        "I drive down to the hospital to visit Scott"
+        
+        scene hospital at truecenter
+        with dissolve
+        m "Hey Scott are you feeling better now?"
+        s "Hey man.. not really that was a pretty rough night."
+        scene doctor at truecenter
+        
+        "The doctor enters the room."
+        d "Hi Scott, I'm Dr. Manhattan. You had alcohol poisoning and we had to pump your stomach. You'll need to stay in the hospital for a few days while we monitor your condition."
+        d "I'll put you on an intravenous drop to manage hydration, blood glucose, and vitamin levels"
+        d "You are lucky that your friend called the amubulance, Scott. Binge drinking is dangerous, if alcohol poison goes untreated it and can lead to brain and liver damage, stroke, heart problems and your breating might stop completely"
+        d "I'll leave you to your friend now. Take care."
+        scene hospital at truecenter
 
-    # These display lines of dialogue.
+        m "Oh shit dude did you hear that? You could have died and I totally saved your ass. You owe me now"
+        
+        if the_choice == 'scott':
+            "I'm getting a call from my girlfriend"
+            g "Where have you been? Why have I not heard from you since last night? We need to talk. Can you come over now?"
+        
+        if the_choice == 'girlfriend':
+            "That was a really long day for me"
+            jump day2_end
+        
+    label girlfriend_house:
+        scene driving at truecenter
+        with dissolve
+        if the_choice == 'girlfriend':
+            "I hurry over to my girlfriends house"
+        else:
+            "I drive down to my girlfriends house"
+            
+        scene house at truecenter
+        with dissolve
+        "I hope she's not angry at me"
+        scene arguing at truecenter
+        g "You don’t spend enough time with me - you’re always out at bars!"
+        m "I work so hard every day. I need to let off some steam after work!"
+        g "Just take one day off. You don’t need to go to the pub every night. We never spend any time together anymore!"
+        m "Come with me then, you don’t have to sit indoors all the time!"
 
-    e "Hey I’m going to the pub."
-    w "You don’t spend enough time with me - you’re always out at bars!"
-    e "My work depends on this! I need to go out to meet with potential customers."
-    w "Just take one day off. You don’t need to go to the pub every night. We never spend any time together anymore!"
-    e "Come with me then, you don’t have to sit indoors all the time!"
+        menu: 
+            "Storm out in rage.":
+                $ arg_choice = 'rage'
+                jump end_gf
 
-menu: 
-    "Storm out in rage.":
-        jump rage
+            "Try to talk it out.":
+                $ arg_choice = 'talk'
+                jump end_gf
+            
+        label end_gf:
+            if the_choice == 'girlfriend':
+                "I almost forgot about Scott in the heat of the argument. I better go check on him."
+                jump hospital
+            else:
+                "That was a really long day for me"
 
-    "Try to talk it out.":
-        jump talk
+        label day2_end:
+            if arg_choice == 'talk':
+                jump talk
+            else:
+                jump rage
+            
+        label rage: 
+            scene night  at truecenter
+            with fade
 
-label rage: 
-    scene alcoholism_scene3  at truecenter
-    with fade
+            "You managed to get out of the argument with your girlfriend, but your she deems your behavior \
+            unreasonable and breaks up with you. As a result, you spiral further and \
+            further into depression and alcoholism."
 
-    "You manage to run away for the night, but your wife deems your behavior \
-    unreasonable and files for divorce. As a result, you spiral further and \
-    further into depression and alcoholism."
+            jump end2
 
-    jump drunk_driving
+        label talk: 
+            scene night at truecenter
+            with fade
 
-label talk: 
-    scene talking at truecenter
-    with fade
-
-    "You and your wife manage to work something out for the night, but the\
-    distance between you grows, and you begin to turn increasingly to alcohol \
-    for comfort."    
-
-label drunk_driving: 
-    scene drunk_driving at truecenter
-    with fade
-
-    "After a late night of drinking, I make some stupid decisions and get pulled\
-    over for drunk driving."
-
-menu: 
-    "Tell the cop a sob story about your failing marriage in the hope that he lets\
-    you off the hook.":
-        jump off_hook
-
-    "Accept the consequences and check yourself into rehab.":
-        jump rehab
-
-label off_hook:
-    scene cry_in_car at truecenter
-    with fade
-
-    "Your sob story worked! The officer let you off the hook, but now your behavior \
-    is more reckless than ever. "
-
-    jump end2
-
-label rehab: 
-    scene court  at truecenter
-    with fade
-
-    "Rehab helped for a while, but you, like 90 percent of alcoholics, relapse. \
-    This time, you’re not sure if you’ll ever be able to stop drinking. "
-
+            "You and your girlfriend manage to work something out for now, but the\
+            distance between you grows, and you begin to turn increasingly to alcohol \
+            for comfort."
 label end2:
     scene black with fade
     
