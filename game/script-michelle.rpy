@@ -44,7 +44,7 @@ label start:
 
     scene birthday bar at truecenter with dissolve
     
-    m "Today is Scott's twenty first birthday. "
+    m "Today is Scott's twenty-first birthday. "
 
     m "As his best friend, of course I have to take him out to celebrate. "
 
@@ -63,7 +63,7 @@ label start:
                 "It gives me a warm and happy feeling."
                 jump girl
             
-            "Sorry Scott, maybe I'll get another drink later":
+            "Sorry Scott, maybe I'll get another drink later.":
                 jump girl
             
 
@@ -74,7 +74,7 @@ label girl:
 
     g "Hey. How come your cup is empty?"
     g "What do you say I buy the booze and you show me how to shake it."
-    "Scott winks at me and raises his glass."
+    "Scott laughs and pats my shoulder."
 
     e " I guess one more drink can't hurt."
     hide eileen
@@ -100,17 +100,17 @@ label girl:
     menu call_menu:
         "Scott is already walking ahead, telling me to hurry up."
         
-        "I pick up the phone":
+        "I pick up the phone.":
             jump gfriend_calls
         
-        "I ignore the call":
+        "I ignore the call.":
             jump ignore_gfriend_calls
 
 label gfriend_calls:
     gf "I've been trying to call you forever. Where are you??"
     gf "I thought you were suppose to pick me up from class tonight."
 
-    e "Shit I totally forgot about that"
+    e "Shit I totally forgot about that."
 
 
     gf "You know what. Nevermind. I'm already on the bus home. Let's talk about this later."
@@ -164,11 +164,11 @@ label after_wat_do:
     scene club2 at truecenter with Dissolve(1.)
     "I'm feeling so lightheaded."
     scene black with fade
-    pause 5
+    pause 3
     
     scene tracks at truecenter with fade
 
-    "It's cold"
+    "It's cold."
     
     "Have I been sleeping here all night?"
 
@@ -196,10 +196,10 @@ label cant_wake_scott2:
     "Scott still doesn't wake up."
 
     "Suddenly I can hear the siren of police cars."
-    scene tracks_red with Dissolve(1.)
-    scene tracks_blue with Dissolve(1.)
-    scene tracks_red with Dissolve(1.)
-    scene tracks with Dissolve(1.)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks_blue with Dissolve(0.5)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks with Dissolve(0.5)
 
     "Shit. I've still got drugs in my system. If the police get here, they'll find out I'm underage."
 
@@ -212,10 +212,10 @@ label cant_wake_scott2:
             jump stay_with_scott
 
 label run_away:
-    scene tracks_red with Dissolve(1.)
-    scene tracks_blue with Dissolve(1.)
-    scene tracks_red with Dissolve(1.)
-    scene tracks with Dissolve(1.)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks_blue with Dissolve(0.5)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks with Dissolve(0.5)
 
     "As I run into the nearest alleyway, I see the police stop in front of Scott."
     "I don't stay and look for long."
@@ -224,10 +224,10 @@ label run_away:
     jump bus_stop
 
 label stay_with_scott:
-    scene tracks_red with Dissolve(1.)
-    scene tracks_blue with Dissolve(1.)
-    scene tracks_red with Dissolve(1.)
-    scene tracks with Dissolve(1.)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks_blue with Dissolve(0.5)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks with Dissolve(0.5)
 
     "The sirens fade in and then out."
     "Looks like they made a turn before this street."
@@ -238,10 +238,10 @@ label stay_with_scott:
 
     "I pick up my phone and call for an ambulance. Scott needs to go to the hospital before this gets too bad."
 
-    scene tracks_red with Dissolve(1.)
-    scene tracks_blue with Dissolve(1.)
-    scene tracks_red with Dissolve(1.)
-    scene tracks with Dissolve(1.)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks_blue with Dissolve(0.5)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks with Dissolve(0.5)
 
 
     "When the paramedics arrive, I step out their way."
