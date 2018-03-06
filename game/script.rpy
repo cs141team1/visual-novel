@@ -4,8 +4,8 @@
 # name of the character.
 
 define og = Character("Girl")
-define g = Character("Girlfriend")
-define gf = Character("Girlfriend")
+define g = Character("Stacy")
+define gf = Character("Stacy")
 define m = Character("Me")
 define e = Character("Me")
 define w = Character("My wife")
@@ -74,7 +74,7 @@ label start:
 
 label girl:
     scene black with dissolve
-    "Suddenly, A girl slides up to us. She looks directly at me and smiles."
+    "Suddenly, a girl slides up to us. She looks directly at me and smiles."
     show eileen movie at truecenter with dissolve
 
     og "Hey. How come your cup is empty?"
@@ -319,7 +319,7 @@ label day2:
 
         "Call girlfriend":
             $ the_choice = 'girlfriend'
-            m "Hey girlfriend, I was out with Scott last night."
+            m "Hey Stacy, I was out with Scott last night."
             g "Yeah I heard about Scott, how is he doing now?"
             m "I was thinking of checking up on him later."
             g "Can you come over? I want to talk to you about you drinking every night."
@@ -341,17 +341,17 @@ label day2:
 
         "The doctor enters the room."
         d "Hi Scott, I'm Dr. Manhattan. You had alcohol poisoning and we had to pump your stomach. You'll need to stay in the hospital for a few days while we monitor your condition."
-        d "I'll put you on an intravenous drop to manage hydration, blood glucose, and vitamin levels"
-        d "You are lucky that your friend called the amubulance, Scott. Binge drinking is dangerous, if alcohol poison goes untreated it and can lead to brain and liver damage, stroke, heart problems and your breating might stop completely"
+        d "I'll put you on an intravenous drop to manage hydration, blood glucose, and vitamin levels."
+        d "You are lucky that your friend called the amubulance, Scott. Binge drinking is dangerous, if alcohol poison goes untreated it and can lead to brain and liver damage, stroke, heart problems and your breating might stop completely."
         d "I'll leave you to your friend now. Take care."
         scene hospital at truecenter
 
-        m "Oh shit dude did you hear that? You could have died and I totally saved your ass. You owe me now"
+        m "Oh shit dude, did you hear that? You could have died, but I totally saved your ass. You owe me now."
         stop music fadeout 6.0
 
         if the_choice == 'scott':
             play sound "<from 0 to 2.3>ring.mp3" fadein 1.5
-            "I'm getting a call from my girlfriend"
+            "I'm getting a call from my girlfriend."
             stop sound fadeout 2.0
             g "Where have you been? Why have I not heard from you since last night? We need to talk. Can you come over now?"
 
@@ -364,14 +364,14 @@ label day2:
         with dissolve
         play sound "traffic.mp3" fadein 3.0
         if the_choice == 'girlfriend':
-            "I hurry over to my girlfriends house"
+            "I hurry over to my girlfriend's house."
         else:
-            "I drive down to my girlfriends house"
+            "I drive down to my girlfriend's house."
         stop sound fadeout 4.0
 
         scene house at truecenter
         with dissolve
-        "I hope she's not angry at me"
+        "I hope she's not angry at me."
         scene arguing at truecenter
         g "You don’t spend enough time with me - you’re always out at bars!"
         m "I work so hard every day. I need to let off some steam after work!"
@@ -393,7 +393,7 @@ label day2:
                 "I almost forgot about Scott in the heat of the argument. I better go check on him."
                 jump hospital
             else:
-                "That was a really long day for me"
+                "That was a really long day for me."
 
         label day2_end:
             if arg_choice == 'talk':
