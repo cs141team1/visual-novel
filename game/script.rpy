@@ -158,11 +158,11 @@ label after_wat_do:
     scene club2 at truecenter with dissolve
 
     "The lights are looking so bright."
-    scene club1 at truecenter with Dissolve(1.)
-    scene club2 at truecenter with Dissolve(1.)
-    scene club at truecenter with Dissolve(1.)
-    scene club1 at truecenter with Dissolve(1.)
-    scene club2 at truecenter with Dissolve(1.)
+    scene club1 at truecenter with Dissolve(.25)
+    scene club2 at truecenter with Dissolve(.25)
+    scene club at truecenter with Dissolve(.25)
+    scene club1 at truecenter with Dissolve(.25)
+    scene club2 at truecenter with Dissolve(.25)
     "I'm feeling so lightheaded."
     scene black with fade
     pause 3
@@ -199,10 +199,10 @@ label cant_wake_scott2:
     "Scott still doesn't wake up."
 
     "Suddenly I can hear the siren of police cars."
-    scene tracks_red with Dissolve(0.5)
-    scene tracks_blue with Dissolve(0.5)
-    scene tracks_red with Dissolve(0.5)
-    scene tracks with Dissolve(0.5)
+    scene tracks_red at truecenter with Dissolve(0.25)
+    scene tracks_blue at truecenter with Dissolve(0.25)
+    scene tracks_red at truecenter with Dissolve(0.5)
+    scene tracks at truecenter with Dissolve(0.5)
 
     "Shit. I've still got drugs in my system. If the police get here, they'll find out I'm underage."
 
@@ -218,10 +218,10 @@ label cant_wake_scott2:
                 jump scott_alcohol_poisoning
 
 label run_away:
-    scene tracks_red with Dissolve(0.5)
-    scene tracks_blue with Dissolve(0.5)
-    scene tracks_red with Dissolve(0.5)
-    scene tracks with Dissolve(0.5)
+    scene tracks_red at truecenter with Dissolve(0.25)
+    scene tracks_blue at truecenter with Dissolve(0.25)
+    scene tracks_red at truecenter with Dissolve(0.5)
+    scene tracks at truecenter with Dissolve(0.5)
 
     "As I run into the nearest alleyway, I see the police stop in front of Scott."
     "I don't stay and look for long."
