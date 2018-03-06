@@ -94,6 +94,7 @@ label girl:
     scene walking to club with hpunch
     scene walking to club with hpunch
     "Ring Ring Ring. My phone is going off."
+    play sound "ring.mp3"
     scene walking to club with hpunch
     scene walking to club with hpunch
 
@@ -103,9 +104,11 @@ label girl:
         "Scott is already walking ahead, telling me to hurry up."
         
         "I pick up the phone.":
+            stop sound
             jump gfriend_calls
         
         "I ignore the call.":
+            stop sound
             jump ignore_gfriend_calls
 
 label gfriend_calls:
@@ -197,6 +200,7 @@ label cant_wake_scott:
 label cant_wake_scott2:
     "Scott still doesn't wake up."
 
+    play sound "<from 0 to 5>police.mp3" fadein 2.0
     "Suddenly I can hear the siren of police cars."
     scene tracks_red with Dissolve(0.5)
     scene tracks_blue with Dissolve(0.5)
@@ -226,10 +230,12 @@ label run_away:
     jump bus_stop
 
 label stay_with_scott:
+    play sound "police.mp3" fadein 2.0
     scene tracks_red with Dissolve(0.5)
     scene tracks_blue with Dissolve(0.5)
     scene tracks_red with Dissolve(0.5)
     scene tracks with Dissolve(0.5)
+    stop sound fadeout 3.0
 
     "The sirens fade in and then out."
     "Looks like they made a turn before this street."
@@ -300,6 +306,7 @@ label day2:
         m "Oh shit dude did you hear that? You could have died and I totally saved your ass. You owe me now"
         
         if the_choice == 'scott':
+            play sound "<from 0 to 2.3>ring.mp3"
             "I'm getting a call from my girlfriend"
             g "Where have you been? Why have I not heard from you since last night? We need to talk. Can you come over now?"
         
@@ -465,6 +472,8 @@ label final:
     scene phonecall at truecenter
     with fade
 
+label final_call:
+    play sound "<from 0 to 2.3>ring.mp3"
     "Ring! Riiing!"
     "A phone call? In the middle of the night?"
     "I'm tempted to ignore it, but I immediately notice the name on the screen - it's the doctor. I saved the number from the last time Scott was hospitalized."
