@@ -3,9 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 label main_menu:
-    if not persistent.set_afm_time:
-         $ persistent.set_afm_time = True
-         $ _preferences.afm_time = 10
+    $ persistent.set_afm_time = True
+    $ _preferences.afm_time = 10
+    return
 
 define og = Character("Girl")
 define g = Character("Stacy")
