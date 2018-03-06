@@ -13,7 +13,10 @@ define s = Character("Scott")
 define p = Character("Phone")
 define d = Character("Dr. Manhattan")
 image eileen movie = Movie(size=(1280, 720), channel="me", play="images/girl2.mkv")
-
+label main_menu:
+     if not persistent.set_afm_time:
+         $ persistent.set_afm_time = True
+         $ _preferences.afm_time = 5
 
 # The game starts here.
 
