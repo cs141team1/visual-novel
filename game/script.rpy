@@ -19,7 +19,6 @@ image eileen movie = Movie(size=(1280, 720), channel="me", play="images/girl2.mk
 
     #return
 
-
 label start:
 
     # Show a background. This uses a placeholder by default, but you can
@@ -39,13 +38,13 @@ label start:
     "When I first started drinking, it had a lot to do with being one of the crowd."
 
     "I'm not relaxed until I have a drink."
-    
+
     "Alcohol takes away the shyness, paralysing self-consciousness."
 
     "I always want to feel how all those other people look."
 
     scene birthday bar at truecenter with dissolve
-    
+
     "Today is Scott's twenty-first birthday. "
 
     "As his best friend, of course I have to take him out to celebrate. "
@@ -53,7 +52,7 @@ label start:
     "Scott is lucky though."
 
     "He's funny and outgoing even when he doesn't drink."
-    
+
     scene drink-glass-dark at truecenter with dissolve
     "Scott offers me another drink."
     s "This one's on me buddy!"
@@ -61,13 +60,13 @@ label start:
     scene onelater at truecenter with fade
 
     menu drink_menu:
-            "I take the drink, chugging it down.": 
+            "I take the drink, chugging it down.":
                 "It gives me a warm and happy feeling."
                 jump girl
-            
+
             "Sorry Scott, maybe I'll get another drink later.":
                 jump girl
-            
+
 
 label girl:
     scene black with dissolve
@@ -80,14 +79,14 @@ label girl:
 
     e " I guess one more drink can't hurt."
     hide eileen
-    
-    scene black with dissolve
+
+    scene bored_at_bar with dissolve
 
     "Soon enough, Scott gets bored at the bar."
     s "Hey, let's go somewhere more interesting. I wanna dance tonight."
     s "Let's get out of here."
 
-    scene walking to club 
+    scene walking to club
 
 
     "We walk along the street, stumbling around as we go into the first club we see."
@@ -98,13 +97,13 @@ label girl:
     scene walking to club with hpunch
 
     "I see 4 missed calls. They're all from my girlfriend."
-    
+
     menu call_menu:
         "Scott is already walking ahead, telling me to hurry up."
-        
+
         "I pick up the phone.":
             jump gfriend_calls
-        
+
         "I ignore the call.":
             jump ignore_gfriend_calls
 
@@ -128,29 +127,29 @@ label ignore_gfriend_calls:
 label club:
     "I'm feeling a slight headache. My heart is beating fast."
     "The club is just around the corner though, and Scott leads me in."
-        
+
     scene club at truecenter with dissolve
-   
+
 
     "Scott and I get more drinks."
     "We mix in some pills Scott brought too."
     " I'm feeling like nothing can go wrong tonight."
-    
+
     "I can do anything."
-    
+
     menu wat_do:
         "I dance like no one's watching.":
             "I'm lighting up the dancefloor."
             jump after_wat_do
-        
+
         "I take a couple more shots.":
             "It's really a wild night."
             jump after_wat_do
-        
+
         "I kiss the girl next to me.":
             "She rolls her eyes at me as she dodges out the way."
             jump after_wat_do
-            
+
 label after_wat_do:
 
     "I dance the night away."
@@ -167,11 +166,11 @@ label after_wat_do:
     "I'm feeling so lightheaded."
     scene black with fade
     pause 3
-    
+
     scene tracks at truecenter with fade
 
     "It's cold."
-    
+
     "Have I been sleeping here all night?"
 
     "Scott is laying beside me. He's unconscious, face down on the concrete."
@@ -179,18 +178,20 @@ label after_wat_do:
     menu wake_scott:
         "I try to push him awake.":
             jump cant_wake_scott
-        
+
         "I yell at him till he wakes.":
             jump cant_wake_scott
 
 label cant_wake_scott:
     "Scott doesn't move. His breathing is slow. When I touch his arm, his skin feels ice cold."
 
+    $push_scott_on_side = False
     menu wake_scott2:
         "I push him on his side.":
+            $push_scott_on_side = True
             "At least now, he won't choke on his vomit."
             jump cant_wake_scott2
-        
+
         "I continue trying to shake him till he wakes.":
             jump cant_wake_scott2
 
@@ -209,7 +210,7 @@ label cant_wake_scott2:
         "I should make a run for it. If the cops see Scott, they'll be able to help him better than me.":
             "I'll call him a taxi too. Just in case."
             jump run_away
-        
+
         "I stay with Scott. It's too dangerous to leave him alone.":
             jump stay_with_scott
 
@@ -225,6 +226,35 @@ label run_away:
     "I'm sorry Scott."
     jump bus_stop
 
+if (push_scott_on_side == False):
+    jump stay_with_scott
+
+label scott_alcohol_poisoning:
+    scene tracks_red with Dissolve(0.5)
+    scene tracks_blue with Dissolve(0.5)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks with Dissolve(0.5)
+
+    "The sirens fade in and then out."
+    "Looks like they made a turn before this street."
+
+    "I have no idea what to do with Scott."
+
+    "Suddenly Scott starts shaking in his sleep."
+    scene tracks with hpunch
+    scene tracks with hpunch
+    "Oh my god he's having a seizure."
+    "I pick up my phone and call for an ambulance. Scott needs to go to the hospital before this gets too bad."
+
+    scene tracks_red with Dissolve(0.5)
+    scene tracks_blue with Dissolve(0.5)
+    scene tracks_red with Dissolve(0.5)
+    scene tracks with Dissolve(0.5)
+    "When the paramedics arrive, I step out their way."
+    "I should really go home now. It's almost sunrise. Scott will hopefully be fine after some rest."
+    jump bus_stop
+
+
 label stay_with_scott:
     scene tracks_red with Dissolve(0.5)
     scene tracks_blue with Dissolve(0.5)
@@ -237,6 +267,7 @@ label stay_with_scott:
     "I have no idea what to do with Scott."
 
     "Suddenly, Scott chokes in his sleep. He's vomited all over himself. His face looks blue."
+    "Shit, I should have turned him over."
 
     "I pick up my phone and call for an ambulance. Scott needs to go to the hospital before this gets too bad."
 
@@ -261,15 +292,15 @@ label day2:
 
     scene morning at truecenter
     with dissolve
-    
+
     "I wake up in the morning with a headache and I'm so thirsty.. I might have had too many drinks last night."
     "I should probably check up on my friend Scott and make sure that he is alright. Oh and I need to call my girlfriend too."
-    
+
     menu hospital_or_girlfriend:
         "Check up on Scott":
             $ the_choice = 'scott'
             jump hospital
-        
+
         "Call girlfriend":
             $ the_choice = 'girlfriend'
             m "Hey girlfriend, I was out with Scott last night."
@@ -278,18 +309,18 @@ label day2:
             g "Can you come over? I want to talk to you about you drinking every night."
             m "Okay I'm on my way."
             jump girlfriend_house
-        
+
     label hospital:
         scene driving at truecenter
         with dissolve
         "I drive down to the hospital to visit Scott"
-        
+
         scene hospital at truecenter
         with dissolve
         m "Hey Scott are you feeling better now?"
         s "Hey man.. not really that was a pretty rough night."
         scene doctor at truecenter
-        
+
         "The doctor enters the room."
         d "Hi Scott, I'm Dr. Manhattan. You had alcohol poisoning and we had to pump your stomach. You'll need to stay in the hospital for a few days while we monitor your condition."
         d "I'll put you on an intravenous drop to manage hydration, blood glucose, and vitamin levels"
@@ -298,15 +329,15 @@ label day2:
         scene hospital at truecenter
 
         m "Oh shit dude did you hear that? You could have died and I totally saved your ass. You owe me now"
-        
+
         if the_choice == 'scott':
             "I'm getting a call from my girlfriend"
             g "Where have you been? Why have I not heard from you since last night? We need to talk. Can you come over now?"
-        
+
         if the_choice == 'girlfriend':
             "That was a really long day for me"
             jump day2_end
-        
+
     label girlfriend_house:
         scene driving at truecenter
         with dissolve
@@ -314,7 +345,7 @@ label day2:
             "I hurry over to my girlfriends house"
         else:
             "I drive down to my girlfriends house"
-            
+
         scene house at truecenter
         with dissolve
         "I hope she's not angry at me"
@@ -324,7 +355,7 @@ label day2:
         g "Just take one day off. You don’t need to go to the pub every night. We never spend any time together anymore!"
         m "Come with me then, you don’t have to sit indoors all the time!"
 
-        menu: 
+        menu:
             "Storm out in rage.":
                 $ arg_choice = 'rage'
                 jump end_gf
@@ -332,7 +363,7 @@ label day2:
             "Try to talk it out.":
                 $ arg_choice = 'talk'
                 jump end_gf
-            
+
         label end_gf:
             if the_choice == 'girlfriend':
                 "I almost forgot about Scott in the heat of the argument. I better go check on him."
@@ -345,8 +376,8 @@ label day2:
                 jump talk
             else:
                 jump rage
-            
-        label rage: 
+
+        label rage:
             scene night  at truecenter
             with fade
 
@@ -356,7 +387,7 @@ label day2:
 
             jump end2
 
-        label talk: 
+        label talk:
             scene night at truecenter
             with fade
 
@@ -365,7 +396,7 @@ label day2:
             for comfort."
 label end2:
     scene black with fade
-    
+
     ""
 
     scene arguing at truecenter with dissolve
@@ -387,7 +418,7 @@ label end2:
     g "I'm sorry too, I think I'm just tired."
     g "I'm going to go rest for a bit."
     "Before I could get another word in, she leaves and shuts the door behind her."
-    
+
     scene morning at truecenter with dissolve
     "Now not only are my own friends avoiding me because of all my drinking lately, but my own girlfriend has been really exhausted from putting up with me all the time."
     "I can see where she's coming from - I know I’m drinking first thing in the morning every morning just to face the day."
@@ -395,7 +426,7 @@ label end2:
     "I have to go to work now, but I’m sweating and shaking. My head is spinning and I can’t focus."
     "I need to stop drinking, but every time I stop, this happens."
     "There’s no way I could get through today like this – I have to drink now if I want to make it through the day at work."
-    
+
     menu:
         "What should I do?"
 
@@ -404,26 +435,26 @@ label end2:
 
         "Don't take a drink.":
             jump drinkno
-            
+
 label drinkyes:
-    
+
     scene warehouse at truecenter
     with fade
-    
+
     "I stopped shaking after I took a drink."
     "I felt so much better already. Like I could take on the world."
     "But while I was at work, I fumbled and caused a huge problem at work."
     "My boss yelled at me for being drunk and I got fired. I don’t know how I’m going to pay rent like this."
     "I drank so much that night I blacked out for who knows how long."
-    
+
     jump final
-    
-    
+
+
 label drinkno:
-    
+
     scene warehouse at truecenter
     with fade
-    
+
     "I beat back my need to drink. I know I'm stronger than this."
     "This is just what I would have to do to start combating my addiction."
     "Despite the heart palpitations and blurry vision, I mustered up my strength and went into work."
@@ -431,14 +462,14 @@ label drinkno:
     "This was the third time this happened this week."
     "My boss yelled at me and I got fired. I don’t know how I’m going to pay rent like this."
     "I drank so much that night I blacked out for who knows how long."
-    
+
     jump final
-    
+
 label final:
-    
+
     scene morning at truecenter
     with fade
-    
+
     "Another dreary morning."
     "Without work, I don't even know what to do anymore with my life."
     m "I’m so miserable I just want to end it all."
@@ -494,10 +525,10 @@ label final:
     "He nodded."
     "We both knew what we needed to do. We needed help."
 
-    
+
     scene hands at truecenter
     with fade
-    
+
     "When Scott got out of the hospital, we both started looking into getting help together."
     "My girlfriend and family were incredibly supportive. They started looking into all sorts of resources for our sake."
     "The two of us eventually got help at our local Drug and Alcohol Team unit."
@@ -514,10 +545,10 @@ label final:
     "From here on out, I have the support I need to start rebuilding my life."
 
     # This ends the game.
-    
+
     scene theend at truecenter
     with fade
-    
+
     ""
     pause 10
 
