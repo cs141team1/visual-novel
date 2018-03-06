@@ -2,6 +2,10 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
+label main_menu:
+    if not persistent.set_afm_time:
+         $ persistent.set_afm_time = True
+         $ _preferences.afm_time = 10
 
 define og = Character("Girl")
 define g = Character("Stacy")
@@ -13,10 +17,6 @@ define s = Character("Scott")
 define p = Character("Phone")
 define d = Character("Dr. Manhattan")
 image eileen movie = Movie(size=(1280, 720), channel="me", play="images/girl2.mkv")
-label main_menu:
-     if not persistent.set_afm_time:
-         $ persistent.set_afm_time = True
-         $ _preferences.afm_time = 5
 
 # The game starts here.
 
@@ -37,7 +37,7 @@ label start:
     # show eileen happy
 
     # These display lines of dialogue.
-    play music "restaurant.ogg" fadein 5.0
+    play music "restaurant.ogg" fadein 5.0 loop
     "When I first started drinking, it had a lot to do with being one of the crowd."
 
     "I'm not relaxed until I have a drink."
@@ -136,7 +136,7 @@ label club:
     "I'm feeling a slight headache. My heart is beating fast."
     "The club is just around the corner though, and Scott leads me in."
 
-    play music "club.ogg" fadein 3.0
+    play music "club.ogg" fadein 3.0 loop
     scene club at truecenter with dissolve
 
     "Scott and I get more drinks."
@@ -176,6 +176,7 @@ label after_wat_do:
     stop music fadeout 5.0
     pause 3
 
+    play music "train.ogg" fadein 5.0 noloop
     scene tracks at truecenter with fade
 
     "It's cold."
@@ -207,7 +208,7 @@ label cant_wake_scott:
 label cant_wake_scott2:
     "Scott still doesn't wake up."
 
-    play sound "<from 0 to 5>police.mp3" fadein 2.0
+    play sound "<from 0 to 5>police.mp3" fadein 2.0 fadeout 4.0
     "Suddenly I can hear the siren of police cars."
     scene tracks_red at truecenter with Dissolve(0.25)
     scene tracks_blue at truecenter with Dissolve(0.25)
@@ -332,7 +333,7 @@ label day2:
         play sound "traffic.mp3" fadein 1.0
         "I drive down to the hospital to visit Scott"
         stop sound fadeout 1.5
-        play music "ecg.ogg" fadein 5.0
+        play music "ecg.ogg" fadein 5.0 loop
         scene hospital at truecenter
         with dissolve
         m "Hey Scott are you feeling better now?"
@@ -402,7 +403,7 @@ label day2:
                 jump rage
 
         label rage:
-            play music "crickets.ogg" fadein 5.0
+            play music "crickets.ogg" fadein 5.0 loop
             scene night  at truecenter
             with fade
 
@@ -413,7 +414,7 @@ label day2:
             jump end2
 
         label talk:
-            play music "crickets.ogg" fadein 5.0
+            play music "crickets.ogg" fadein 5.0 loop
             scene night at truecenter
             with fade
 
@@ -463,7 +464,7 @@ label end2:
             jump drinkno
 
 label drinkyes:
-
+    play music "factory.ogg" fadein 3.0 loop
     scene warehouse at truecenter
     with fade
 
@@ -477,7 +478,7 @@ label drinkyes:
 
 
 label drinkno:
-
+    play music "factory.ogg" fadein 3.0 loop
     scene warehouse at truecenter
     with fade
 
@@ -492,9 +493,11 @@ label drinkno:
     jump final
 
 label final:
-
+    stop music fadeout 2.0
     scene morning at truecenter
     with fade
+
+    play music "rain.ogg" fadein 4.0
 
     "Another dreary morning."
     "Without work, I don't even know what to do anymore with my life."
@@ -522,7 +525,7 @@ label final:
 
     scene phonecall at truecenter
     with fade
-
+    stop music fadeout 5.0
 label final_call:
     play sound "<from 0 to 2.3>ring.mp3" fadein 2.0
     "Ring! Riiing!"
