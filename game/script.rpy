@@ -34,7 +34,7 @@ label start:
     # show eileen happy
 
     # These display lines of dialogue.
-
+    play music "restaurant.ogg" fadein 5.0
     "When I first started drinking, it had a lot to do with being one of the crowd."
 
     "I'm not relaxed until I have a drink."
@@ -54,8 +54,10 @@ label start:
     "He's funny and outgoing even when he doesn't drink."
 
     scene drink-glass-dark at truecenter with dissolve
+    play sound "ice.mp3" fadein 2.0
     "Scott offers me another drink."
     s "This one's on me buddy!"
+    stop sound fadeout 2.0
 
     scene onelater at truecenter with fade
 
@@ -67,7 +69,6 @@ label start:
             "Sorry Scott, maybe I'll get another drink later.":
                 jump girl
 
-
 label girl:
     scene black with dissolve
     "Suddenly, A girl slides up to us. She looks directly at me and smiles."
@@ -75,12 +76,13 @@ label girl:
 
     og "Hey. How come your cup is empty?"
     og "What do you say I buy the booze and you show me how to shake it."
+    play sound "laugh.ogg" fadein 2.0 fadeout 3.0
     "Scott laughs and pats my shoulder."
 
     e " I guess one more drink can't hurt."
     hide eileen
 
-    scene bored_at_bar with dissolve
+    scene bored_at_bar  at truecenter with dissolve
 
     "Soon enough, Scott gets bored at the bar."
     s "Hey, let's go somewhere more interesting. I wanna dance tonight."
@@ -90,12 +92,12 @@ label girl:
 
 
     "We walk along the street, stumbling around as we go into the first club we see."
-    scene walking to club with hpunch
-    scene walking to club with hpunch
+    scene walking to club  at truecenter with hpunch
+    scene walking to club  at truecenter with hpunch
+    play sound "ring.mp3" fadein 2.0
     "Ring Ring Ring. My phone is going off."
-    play sound "ring.mp3"
-    scene walking to club with hpunch
-    scene walking to club with hpunch
+    scene walking to club  at truecenter with hpunch
+    scene walking to club  at truecenter with hpunch
 
     "I see 4 missed calls. They're all from my girlfriend."
 
@@ -131,8 +133,8 @@ label club:
     "I'm feeling a slight headache. My heart is beating fast."
     "The club is just around the corner though, and Scott leads me in."
 
+    play music "club.ogg" fadein 3.0
     scene club at truecenter with dissolve
-
 
     "Scott and I get more drinks."
     "We mix in some pills Scott brought too."
@@ -157,7 +159,7 @@ label after_wat_do:
 
     "I dance the night away."
     scene club2 at truecenter with hpunch
-    scene black with dissolve
+    scene black  at truecenter with dissolve
     scene club2 at truecenter with dissolve
 
     "The lights are looking so bright."
@@ -168,6 +170,7 @@ label after_wat_do:
     scene club2 at truecenter with Dissolve(.25)
     "I'm feeling so lightheaded."
     scene black with fade
+    stop music fadeout 5.0
     pause 3
 
     scene tracks at truecenter with fade
@@ -208,6 +211,8 @@ label cant_wake_scott2:
     scene tracks_red at truecenter with Dissolve(0.5)
     scene tracks at truecenter with Dissolve(0.5)
 
+    stop sound fadeout 4.0
+
     "Shit. I've still got drugs in my system. If the police get here, they'll find out I'm underage."
 
     menu wake_scott3:
@@ -236,10 +241,10 @@ label run_away:
 
 
 label scott_alcohol_poisoning:
-    scene tracks_red with Dissolve(0.5)
-    scene tracks_blue with Dissolve(0.5)
-    scene tracks_red with Dissolve(0.5)
-    scene tracks with Dissolve(0.5)
+    scene tracks_red  at truecenter with Dissolve(0.5)
+    scene tracks_blue  at truecenter with Dissolve(0.5)
+    scene tracks_red at truecenter  with Dissolve(0.5)
+    scene tracks  at truecenter with Dissolve(0.5)
 
     "The sirens fade in and then out."
     "Looks like they made a turn before this street."
@@ -247,15 +252,15 @@ label scott_alcohol_poisoning:
     "I have no idea what to do with Scott."
 
     "Suddenly Scott starts shaking in his sleep."
-    scene tracks with hpunch
-    scene tracks with hpunch
+    scene tracks at truecenter  with hpunch
+    scene tracks at truecenter  with hpunch
     "Oh my god he's having a seizure."
     "I pick up my phone and call for an ambulance. Scott needs to go to the hospital before this gets too bad."
 
-    scene tracks_red with Dissolve(0.5)
-    scene tracks_blue with Dissolve(0.5)
-    scene tracks_red with Dissolve(0.5)
-    scene tracks with Dissolve(0.5)
+    scene tracks_red at truecenter  with Dissolve(0.5)
+    scene tracks_blue at truecenter  with Dissolve(0.5)
+    scene tracks_red at truecenter  with Dissolve(0.5)
+    scene tracks  at truecenter with Dissolve(0.5)
     "When the paramedics arrive, I step out their way."
     "I should really go home now. It's almost sunrise. Scott will hopefully be fine after some rest."
     jump bus_stop
@@ -263,10 +268,10 @@ label scott_alcohol_poisoning:
 
 label stay_with_scott:
     play sound "police.mp3" fadein 2.0
-    scene tracks_red with Dissolve(0.5)
-    scene tracks_blue with Dissolve(0.5)
-    scene tracks_red with Dissolve(0.5)
-    scene tracks with Dissolve(0.5)
+    scene tracks_red  at truecenter with Dissolve(0.5)
+    scene tracks_blue  at truecenter with Dissolve(0.5)
+    scene tracks_red  at truecenter with Dissolve(0.5)
+    scene tracks  at truecenter with Dissolve(0.5)
     stop sound fadeout 3.0
 
     "The sirens fade in and then out."
@@ -279,10 +284,10 @@ label stay_with_scott:
 
     "I pick up my phone and call for an ambulance. Scott needs to go to the hospital before this gets too bad."
 
-    scene tracks_red with Dissolve(0.5)
-    scene tracks_blue with Dissolve(0.5)
-    scene tracks_red with Dissolve(0.5)
-    scene tracks with Dissolve(0.5)
+    scene tracks_red  at truecenter with Dissolve(0.5)
+    scene tracks_blue  at truecenter with Dissolve(0.5)
+    scene tracks_red  at truecenter with Dissolve(0.5)
+    scene tracks  at truecenter with Dissolve(0.5)
 
 
     "When the paramedics arrive, I step out their way."
@@ -321,8 +326,10 @@ label day2:
     label hospital:
         scene driving at truecenter
         with dissolve
+        play sound "traffic.mp3" fadein 1.0
         "I drive down to the hospital to visit Scott"
-
+        stop sound fadeout 1.5
+        play music "ecg.ogg" fadein 5.0
         scene hospital at truecenter
         with dissolve
         m "Hey Scott are you feeling better now?"
@@ -337,10 +344,12 @@ label day2:
         scene hospital at truecenter
 
         m "Oh shit dude did you hear that? You could have died and I totally saved your ass. You owe me now"
+        stop music fadeout 6.0
 
         if the_choice == 'scott':
-            play sound "<from 0 to 2.3>ring.mp3"
+            play sound "<from 0 to 2.3>ring.mp3" fadein 1.5
             "I'm getting a call from my girlfriend"
+            stop sound fadeout 2.0
             g "Where have you been? Why have I not heard from you since last night? We need to talk. Can you come over now?"
 
         if the_choice == 'girlfriend':
@@ -350,10 +359,12 @@ label day2:
     label girlfriend_house:
         scene driving at truecenter
         with dissolve
+        play sound "traffic.mp3" fadein 3.0
         if the_choice == 'girlfriend':
             "I hurry over to my girlfriends house"
         else:
             "I drive down to my girlfriends house"
+        stop sound fadeout 4.0
 
         scene house at truecenter
         with dissolve
@@ -367,6 +378,7 @@ label day2:
         menu:
             "Storm out in rage.":
                 $ arg_choice = 'rage'
+                play sound "slamdoor.ogg" fadein 1.0
                 jump end_gf
 
             "Try to talk it out.":
@@ -387,6 +399,7 @@ label day2:
                 jump rage
 
         label rage:
+            play music "crickets.ogg" fadein 5.0
             scene night  at truecenter
             with fade
 
@@ -397,6 +410,7 @@ label day2:
             jump end2
 
         label talk:
+            play music "crickets.ogg" fadein 5.0
             scene night at truecenter
             with fade
 
@@ -407,7 +421,7 @@ label end2:
     scene black with fade
 
     ""
-
+    stop music fadeout 4.0
     scene arguing at truecenter with dissolve
 
     g "Are you drinking again?"
@@ -487,9 +501,11 @@ label final:
 
     scene morning at truecenter
     with fade
+    play sound "heartbeat.ogg" fadein 3.0
 
     "My heart palpitations are stronger than ever this morning..."
     scene morning at truecenter with hpunch
+    stop sound fadeout 3.0
     "Shivering furiously, I climb out of bed and dig through my refrigerator for something to eat."
     "Sitting on my bed, I spend the entire day drinking again."
 
@@ -505,8 +521,9 @@ label final:
     with fade
 
 label final_call:
-    play sound "<from 0 to 2.3>ring.mp3"
+    play sound "<from 0 to 2.3>ring.mp3" fadein 2.0
     "Ring! Riiing!"
+    stop sound fadeout 2.0
     "A phone call? In the middle of the night?"
     "I'm tempted to ignore it, but I immediately notice the name on the screen - it's the doctor. I saved the number from the last time Scott was hospitalized."
     m "Doctor? Is everything alright?"
@@ -517,17 +534,19 @@ label final_call:
     d "We thought you would like to know. we think you should see him."
     "Before he could even finish talking, I immediately jump out of bed and get in my car to rush to the hospital."
 
+    play sound "traffic.mp3" fadein 3.0
     scene waitingroom at truecenter
     with fade
+    stop sound fadeout 3.0
 
     "I wait outside for several hours while they perform the necessary surgery on him."
     "I had never felt so worried in my life."
     "After a while, the doctors come out and inform me of his status."
     "I'm relieved that he only suffered a broken leg and a minor head injury. I know it could have been much worse."
 
+    play music "ecg.ogg" fadein 4.0
     scene hospital at truecenter
     with fade
-
     "I go in to see him. He greets me with a crooked smile."
     s "Sorry you had to come in and see me like this again."
     s "I'm feeling much better now though. I'm so glad I'm still alive."
@@ -535,6 +554,7 @@ label final_call:
     m "I'm glad too, bro. And I think we both need some help in that department."
     "He nodded."
     "We both knew what we needed to do. We needed help."
+    stop music fadeout 4.0
 
 
     scene hands at truecenter
