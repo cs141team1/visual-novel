@@ -212,7 +212,10 @@ label cant_wake_scott2:
             jump run_away
 
         "I stay with Scott. It's too dangerous to leave him alone.":
-            jump stay_with_scott
+            if (push_scott_on_side == False):
+                jump stay_with_scott
+            else:
+                jump scott_alcohol_poisoning
 
 label run_away:
     scene tracks_red with Dissolve(0.5)
@@ -226,8 +229,7 @@ label run_away:
     "I'm sorry Scott."
     jump bus_stop
 
-if (push_scott_on_side == False):
-    jump stay_with_scott
+
 
 label scott_alcohol_poisoning:
     scene tracks_red with Dissolve(0.5)
