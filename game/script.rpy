@@ -444,23 +444,22 @@ label final:
     m "I’m so miserable I just want to end it all."
     m "I don’t care how, I just want it to stop."
     "With nothing better to do, I spend the entire day drinking."
-    pause 2
 
     scene morning at truecenter
     with fade
 
     "My heart palpitations are stronger than ever this morning..."
+    scene morning at truecenter with hpunch
     "Shivering furiously, I climb out of bed and dig through my refrigerator for something to eat."
     "Sitting on my bed, I spend the entire day drinking again."
-    pause 2
 
     scene morning at truecenter
     with fade
 
     "I have a horrible hangover this morning."
+    scene morning at truecenter with hpunch
     "Despite all that, I'm shivering so hard I can't focus on anything at all."
     "I spend the entire day drinking once again."
-    pause 2
 
     scene phonecall at truecenter
     with fade
